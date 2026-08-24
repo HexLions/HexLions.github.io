@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cosimo Leoni - IT Specialist & Developer</title>
-    
+
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
@@ -69,7 +69,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: 
+            background-image:
                 linear-gradient(rgba(0, 217, 255, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(0, 217, 255, 0.03) 1px, transparent 1px);
             background-size: 50px 50px;
@@ -134,7 +134,14 @@
             color: var(--accent);
         }
 
-        .theme-toggle {
+        .nav-controls {
+            display: flex;
+            gap: 0.6rem;
+            align-items: center;
+        }
+
+        .theme-toggle,
+        .lang-toggle {
             background: var(--bg-tertiary);
             border: 1px solid var(--border);
             cursor: pointer;
@@ -145,7 +152,15 @@
             transition: all 0.3s ease;
         }
 
-        .theme-toggle:hover {
+        .lang-toggle {
+            font-size: 0.85rem;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            min-width: 2.8rem;
+        }
+
+        .theme-toggle:hover,
+        .lang-toggle:hover {
             color: var(--accent);
             border-color: var(--accent);
         }
@@ -408,15 +423,8 @@
         .timeline-title {
             font-size: 1.5rem;
             font-weight: 700;
-            margin-bottom: 0.3rem;
-            color: var(--text-primary);
-        }
-
-        .timeline-company {
-            color: var(--text-secondary);
-            font-weight: 500;
             margin-bottom: 0.8rem;
-            font-size: 1.1rem;
+            color: var(--text-primary);
         }
 
         .timeline-description {
@@ -442,6 +450,11 @@
             overflow: hidden;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
+        }
+
+        .project-card.featured {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 1px var(--accent-dim);
         }
 
         .project-card::before {
@@ -789,6 +802,10 @@
                 <li><a href="#experience">experience</a></li>
                 <li><a href="#projects">projects</a></li>
                 <li><a href="#platforms">3d models</a></li>
+                <li class="nav-controls">
+                    <button id="langToggle" class="lang-toggle" aria-label="Change language">EN</button>
+                    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+                </li>
             </ul>
         </div>
     </nav>
@@ -799,14 +816,14 @@
                 <p class="hero-subtitle">&lt;Hi, I'm /&gt;</p>
                 <h1 class="hero-title">Cosimo <span>Leoni</span></h1>
                 <p class="hero-role">IT Assistant & Network Specialist</p>
-                <p class="hero-description">
-                    Just a typical nerd appassionato di tecnologia, networking e progetti maker. 
-                    Lavoro presso Vignamaggio come IT Assistant occupandomi di infrastrutture IT e reti, 
+                <p class="hero-description" data-i18n="hero-desc">
+                    Just a typical nerd appassionato di tecnologia, networking e progetti maker.
+                    Lavoro come IT Assistant occupandomi di infrastrutture IT e reti,
                     con forte interesse per Python, CAD modeling, stampa 3D e open source hardware.
                 </p>
                 <div class="hero-cta">
                     <a href="#projects" class="btn btn-primary">
-                        <span>→</span> View Projects
+                        <span>→</span> <span data-i18n="cta-projects">View Projects</span>
                     </a>
                     <a href="https://github.com/HexLions" target="_blank" class="btn btn-secondary">
                         <span>⌘</span> GitHub
@@ -823,27 +840,27 @@
         <div class="container">
             <div class="section-header">
                 <p class="section-subtitle">// About Me</p>
-                <h2 class="section-title">Chi Sono</h2>
+                <h2 class="section-title" data-i18n="about-title">Chi Sono</h2>
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <p>
-                        Sono un <strong>IT Specialist</strong> con esperienza pluriennale nell'assistenza tecnica, 
-                        gestione reti e amministrazione sistemi. Attualmente lavoro come IT Assistant 
-                        e Network Specialist presso <strong>Vignamaggio</strong> in Greve in Chianti.
+                    <p data-i18n="about-p1">
+                        Sono un <strong>IT Specialist</strong> con esperienza pluriennale nell'assistenza tecnica,
+                        gestione reti e amministrazione sistemi. Attualmente lavoro come <strong>IT Assistant & Network Specialist</strong>,
+                        occupandomi della gestione end-to-end dell'infrastruttura aziendale.
                     </p>
-                    <p>
-                        La mia esperienza include manutenzione hardware Dell, supporto help desk remoto, 
-                        configurazione Active Directory, gestione infrastrutture di rete e troubleshooting sistemistico. 
-                        Ho lavorato per anni con <strong>Computer Care</strong> fornendo assistenza tecnica presso Regione Toscana.
+                    <p data-i18n="about-p2">
+                        La mia esperienza include manutenzione hardware Dell, supporto help desk remoto,
+                        configurazione Active Directory, gestione infrastrutture di rete e troubleshooting sistemistico
+                        su commesse enterprise multi-sede.
                     </p>
-                    <p>
-                        Nel tempo libero mi dedico a progetti <strong>maker</strong>: stampa 3D, Arduino, Raspberry Pi, 
-                        droni e fotografia. Sto imparando Python e CAD modeling, con particolare focus su 
+                    <p data-i18n="about-p3">
+                        Nel tempo libero mi dedico a progetti <strong>maker</strong>: stampa 3D, Arduino, Raspberry Pi,
+                        droni e fotografia. Sto imparando Python e CAD modeling, con particolare focus su
                         <strong>Fusion 360</strong> per la progettazione di componenti meccanici.
                     </p>
-                    <p>
-                        Ho frequentato <strong>Ingegneria Informatica</strong> presso l'Università di Firenze dal 2018 al 2024, 
+                    <p data-i18n="about-p4">
+                        Ho frequentato <strong>Ingegneria Informatica</strong> presso l'Università di Firenze dal 2018 al 2024,
                         dove ho sviluppato competenze avanzate in networking e sistemi distribuiti.
                     </p>
                 </div>
@@ -968,23 +985,23 @@
         <div class="container">
             <div class="section-header">
                 <p class="section-subtitle">// Education</p>
-                <h2 class="section-title">Formazione</h2>
+                <h2 class="section-title" data-i18n="edu-title">Formazione</h2>
             </div>
             <div class="education-grid">
                 <div class="education-card">
-                    <h3 class="education-degree">Ingegneria Informatica</h3>
+                    <h3 class="education-degree" data-i18n="edu1-degree">Ingegneria Informatica</h3>
                     <p class="education-school">Università degli Studi di Firenze</p>
                     <p class="education-year">2018 - 2024</p>
                     <div class="education-details">
-                        <p>Percorso universitario in Ingegneria Informatica con focus su networking, sistemi distribuiti e architetture software.</p>
+                        <p data-i18n="edu1-details">Percorso universitario in Ingegneria Informatica con focus su networking, sistemi distribuiti e architetture software.</p>
                     </div>
                 </div>
 
                 <div class="education-card">
-                    <h3 class="education-degree">Diploma di Perito Tecnico Informatico e delle Telecomunicazioni</h3>
+                    <h3 class="education-degree" data-i18n="edu2-degree">Diploma di Perito Tecnico Informatico e delle Telecomunicazioni</h3>
                     <p class="education-school">I.S.I.S. Gobetti-Volta, Bagno a Ripoli</p>
                     <p class="education-year">2013 - 2018</p>
-                    <div class="education-details">
+                    <div class="education-details" data-i18n="edu2-details">
                         <p>Competenze acquisite:</p>
                         <ul>
                             <li>Programmazione Web (JavaScript, HTML, PHP, CSS)</li>
@@ -1002,25 +1019,23 @@
         <div class="container">
             <div class="section-header">
                 <p class="section-subtitle">// Career Path</p>
-                <h2 class="section-title">Esperienza</h2>
+                <h2 class="section-title" data-i18n="exp-title">Esperienza</h2>
             </div>
             <div class="timeline">
                 <div class="timeline-item">
-                    <p class="timeline-date">Aprile 2024 - Presente</p>
+                    <p class="timeline-date" data-i18n="exp1-date">Aprile 2024 - Presente</p>
                     <h3 class="timeline-title">IT Assistant & Network Specialist</h3>
-                    <p class="timeline-company">Vignamaggio - Greve in Chianti, Toscana</p>
-                    <p class="timeline-description">
-                        Gestione completa dell'infrastruttura IT aziendale, amministrazione reti, 
+                    <p class="timeline-description" data-i18n="exp1-desc">
+                        Gestione completa dell'infrastruttura IT aziendale, amministrazione reti,
                         configurazione e manutenzione server, supporto utenti e implementazione soluzioni tecnologiche.
                     </p>
                 </div>
 
                 <div class="timeline-item">
-                    <p class="timeline-date">Settembre 2021 - Dicembre 2023</p>
-                    <h3 class="timeline-title">Tecnico Informatico - Help Desk</h3>
-                    <p class="timeline-company">Computer Care S.r.l. - Sesto Fiorentino</p>
-                    <div class="timeline-description">
-                        <p>Assistenza tecnica presso Regione Toscana (attività non continuativa per esigenze universitarie):</p>
+                    <p class="timeline-date" data-i18n="exp2-date">Settembre 2021 - Dicembre 2023</p>
+                    <h3 class="timeline-title" data-i18n="exp2-title">Tecnico Informatico - Help Desk</h3>
+                    <div class="timeline-description" data-i18n="exp2-desc">
+                        <p>Assistenza tecnica sul campo (attività non continuativa per esigenze universitarie):</p>
                         <ul>
                             <li>Assistenza remota tramite Anydesk e TeamViewer</li>
                             <li>Manutenzione e sostituzione macchine Dell</li>
@@ -1031,10 +1046,9 @@
                 </div>
 
                 <div class="timeline-item">
-                    <p class="timeline-date">Maggio 2021 - Giugno 2021</p>
-                    <h3 class="timeline-title">Tecnico Informatico</h3>
-                    <p class="timeline-company">Computer Care S.r.l.</p>
-                    <div class="timeline-description">
+                    <p class="timeline-date" data-i18n="exp3-date">Maggio 2021 - Giugno 2021</p>
+                    <h3 class="timeline-title" data-i18n="exp3-title">Tecnico Informatico</h3>
+                    <div class="timeline-description" data-i18n="exp3-desc">
                         <ul>
                             <li>Ghosting PC e configurazione iniziale</li>
                             <li>Consegna PC agli utenti finali</li>
@@ -1044,10 +1058,9 @@
                 </div>
 
                 <div class="timeline-item">
-                    <p class="timeline-date">Dicembre 2016 - Agosto 2017</p>
-                    <h3 class="timeline-title">Programmatore (Stage)</h3>
-                    <p class="timeline-company">Direzione Sistemi Informativi - Comune di Firenze</p>
-                    <div class="timeline-description">
+                    <p class="timeline-date" data-i18n="exp4-date">Dicembre 2016 - Agosto 2017</p>
+                    <h3 class="timeline-title" data-i18n="exp4-title">Programmatore (Stage)</h3>
+                    <div class="timeline-description" data-i18n="exp4-desc">
                         <ul>
                             <li>Ricerca e integrazione QR Code per "Firenze The Walking City"</li>
                             <li>Ricerca coordinate GPS per posizionamento QR Code</li>
@@ -1063,20 +1076,119 @@
         <div class="container">
             <div class="section-header">
                 <p class="section-subtitle">// Portfolio</p>
-                <h2 class="section-title">Progetti</h2>
+                <h2 class="section-title" data-i18n="proj-title">Progetti</h2>
             </div>
             <div class="projects-grid">
+                <div class="project-card featured">
+                    <div class="project-header">
+                        <div class="project-icon">🌡️</div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">RackTemp</h3>
+                        <p class="project-description" data-i18n="proj-racktemp-desc">
+                            Monitor self-hosted per temperatura e umidità del rack: sensore ESP32-C3 + SHT31-D,
+                            dashboard web live con segnale WiFi, discovery automatica dei sensori in rete,
+                            aggiornamenti firmware OTA, alert SMTP/Telegram/Graph, backup programmati e
+                            integrazione PRTG/Prometheus/Zabbix. Disponibile come container Docker, servizio Windows
+                            o servizio Linux nativo.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">TypeScript</span>
+                            <span class="tag">React</span>
+                            <span class="tag">ESP32-C3</span>
+                            <span class="tag">Docker</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/HexLions/RackTemp" class="project-link" target="_blank">
+                                <span>→</span> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card featured">
+                    <div class="project-header">
+                        <div class="project-icon">🎮</div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">GBP-Downloader</h3>
+                        <p class="project-description" data-i18n="proj-gbp-desc">
+                            Tool web per l'ecosistema Game Boy Printer Emulator — zero installazione, gira interamente
+                            nel browser via Web Serial API. Riceve foto dalla Game Boy Camera via Arduino su USB,
+                            decodifica i tile 2bpp in PNG nativo (export singolo o batch ZIP) e flasha il firmware
+                            GBP Emulator su Arduino Nano/Uno via STK500v1, senza avrdude né Arduino IDE.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Web Serial API</span>
+                            <span class="tag">Arduino</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/HexLions/GBP-Downloader" class="project-link" target="_blank">
+                                <span>→</span> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">🎮</div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">DS Game Library</h3>
+                        <p class="project-description" data-i18n="proj-dsgame-desc">
+                            Tracker per la collezione di giochi Nintendo DS, precaricato con tutti i 3255 giochi
+                            ufficiali: spunta quelli che possiedi e tieni traccia della collezione da un sito statico.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/HexLions/ds-game-library" class="project-link" target="_blank">
+                                <span>→</span> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">🖥️</div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">PaperDesk</h3>
+                        <p class="project-description" data-i18n="proj-paperdesk-desc">
+                            To-do list su display e-paper, controllabile da web app o bot Telegram. Basato su ESP32
+                            (LOLIN32 Lite) e pannello e-paper 4.2", gira per settimane con una singola batteria LiPo
+                            grazie al deep sleep nativo.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">ESP32</span>
+                            <span class="tag">e-Paper</span>
+                            <span class="tag">Telegram Bot</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/HexLions/Paperdesk" class="project-link" target="_blank">
+                                <span>→</span> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="project-card">
                     <div class="project-header">
                         <div class="project-icon">🔧</div>
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Threaded Insert Press</h3>
-                        <p class="project-description">
-                            Pressa open source completamente stampabile in 3D per l'inserimento preciso di inserti filettati. 
-                            Il progetto è stato realizzato in Fusion 360 con design parametrico che permette la personalizzazione 
-                            di tutte le dimensioni. Include meccanica a vite senza fine per controllo fine della pressione, 
-                            guide lineari per stabilità, e supporta diverse misure di inserti (M3, M4, M5, M6). 
+                        <p class="project-description" data-i18n="proj-tip-desc">
+                            Pressa open source completamente stampabile in 3D per l'inserimento preciso di inserti filettati.
+                            Il progetto è stato realizzato in Fusion 360 con design parametrico che permette la personalizzazione
+                            di tutte le dimensioni. Include meccanica a vite senza fine per controllo fine della pressione,
+                            guide lineari per stabilità, e supporta diverse misure di inserti (M3, M4, M5, M6).
                             Progetto rilasciato open source per la community maker e stampato da centinaia di utenti worldwide.
                         </p>
                         <div class="project-tags">
@@ -1098,10 +1210,10 @@
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">CosplayRPG</h3>
-                        <p class="project-description">
-                            Badge RPG indossabile con ESP-01S e display OLED 0.96". Genera una carta personaggio RPG 
-                            deterministica dal nome (classe, livello, statistiche), mostra eventi cosplay italiani in tempo reale 
-                            da cosplayersitaliani.it, orologio NTP sincronizzato e WiFi captive portal per configurazione. 
+                        <p class="project-description" data-i18n="proj-cosplay-desc">
+                            Badge RPG indossabile con ESP-01S e display OLED 0.96". Genera una carta personaggio RPG
+                            deterministica dal nome (classe, livello, statistiche), mostra eventi cosplay italiani in tempo reale
+                            da cosplayersitaliani.it, orologio NTP sincronizzato e WiFi captive portal per configurazione.
                             Carousel automatico con alert per eventi imminenti. Progetto completo Arduino/ESP8266.
                         </p>
                         <div class="project-tags">
@@ -1120,14 +1232,14 @@
 
                 <div class="project-card">
                     <div class="project-header">
-                        <div class="project-icon">🖥️</div>
+                        <div class="project-icon">🫐</div>
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Pi-PaaS</h3>
-                        <p class="project-description">
-                            Platform-as-a-Service self-hosted su Raspberry Pi con DietPi. Web-based deployment di app 
-                            Node.js, Python, static sites e Docker containers. Backend Node.js con admin panel UI, 
-                            gestione DNS automatica, supporto i18n in 6 lingue (IT/EN/ES/FR/DE/JP) e monitoring real-time. 
+                        <p class="project-description" data-i18n="proj-pipaas-desc">
+                            Platform-as-a-Service self-hosted su Raspberry Pi con DietPi. Web-based deployment di app
+                            Node.js, Python, static sites e Docker containers. Backend Node.js con admin panel UI,
+                            gestione DNS automatica, supporto i18n in 6 lingue (IT/EN/ES/FR/DE/JP) e monitoring real-time.
                             Sistema completo per hosting locale di progetti personali.
                         </p>
                         <div class="project-tags">
@@ -1150,8 +1262,8 @@
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">E3NG 1.2 Config</h3>
-                        <p class="project-description">
-                            Configurazione e ottimizzazione per stampante 3D E3NG. 
+                        <p class="project-description" data-i18n="proj-e3ng-desc">
+                            Configurazione e ottimizzazione per stampante 3D E3NG.
                             Setup firmware, profili di stampa e configurazioni hardware.
                         </p>
                         <div class="project-tags">
@@ -1173,8 +1285,8 @@
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Protocollo LIONET</h3>
-                        <p class="project-description">
-                            Tesi universitaria su modulazione di rete Peer-to-Peer basata su protocollo LIONET 
+                        <p class="project-description" data-i18n="proj-lionet-desc">
+                            Tesi universitaria su modulazione di rete Peer-to-Peer basata su protocollo LIONET
                             per reti pubbliche. Ricerca e implementazione.
                         </p>
                         <div class="project-tags">
@@ -1191,8 +1303,8 @@
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Firenze The Walking City</h3>
-                        <p class="project-description">
-                            Integrazione QR Code per applicazione turistica del Comune di Firenze. 
+                        <p class="project-description" data-i18n="proj-firenze-desc">
+                            Integrazione QR Code per applicazione turistica del Comune di Firenze.
                             Gestione database e georeferenziazione punti di interesse.
                         </p>
                         <div class="project-tags">
@@ -1209,8 +1321,8 @@
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Homelab Projects</h3>
-                        <p class="project-description">
-                            Progetti vari con Raspberry Pi, Arduino, ESP8266/32. 
+                        <p class="project-description" data-i18n="proj-homelab-desc">
+                            Progetti vari con Raspberry Pi, Arduino, ESP8266/32.
                             Automazione, monitoring, IoT e sperimentazione hardware.
                         </p>
                         <div class="project-tags">
@@ -1220,7 +1332,7 @@
                         </div>
                         <div class="project-links">
                             <a href="https://github.com/HexLions" class="project-link" target="_blank">
-                                <span>→</span> More on GitHub
+                                <span>→</span> <span data-i18n="more-github">More on GitHub</span>
                             </a>
                         </div>
                     </div>
@@ -1232,8 +1344,8 @@
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Photography & Video</h3>
-                        <p class="project-description">
-                            Fotografia, video editing con Adobe Premiere Pro, 
+                        <p class="project-description" data-i18n="proj-photo-desc">
+                            Fotografia, video editing con Adobe Premiere Pro,
                             riprese con droni e post-produzione.
                         </p>
                         <div class="project-tags">
@@ -1243,7 +1355,7 @@
                         </div>
                         <div class="project-links">
                             <a href="https://www.instagram.com/exibiliar.photography/" class="project-link" target="_blank">
-                                <span>→</span> Instagram Portfolio
+                                <span>→</span> <span data-i18n="instagram-portfolio">Instagram Portfolio</span>
                             </a>
                         </div>
                     </div>
@@ -1258,7 +1370,7 @@
                 <p class="section-subtitle">// 3D Design</p>
                 <h2 class="section-title">3D Model Platforms</h2>
             </div>
-            <p style="text-align: center; color: var(--text-secondary); max-width: 800px; margin: 0 auto 3rem;">
+            <p style="text-align: center; color: var(--text-secondary); max-width: 800px; margin: 0 auto 3rem;" data-i18n="platforms-intro">
                 Esplora i miei modelli 3D stampabili, progetti open source e design parametrici su queste piattaforme.
             </p>
             <div class="platforms-grid">
@@ -1269,12 +1381,12 @@
                         </svg>
                     </div>
                     <h3 class="platform-name">Thingiverse</h3>
-                    <p class="platform-description">Modelli 3D gratuiti e progetti open source</p>
+                    <p class="platform-description" data-i18n="plat1-desc">Modelli 3D gratuiti e progetti open source</p>
                     <div class="platform-link">
-                        <span>→</span> Visita Profilo
+                        <span>→</span> <span data-i18n="visit-profile">Visita Profilo</span>
                     </div>
                 </a>
-                
+
                 <a href="https://thangs.com/designer/HexLions" target="_blank" class="platform-card">
                     <div class="platform-icon">
                         <svg width="60" height="60" viewBox="0 0 24 24" fill="currentColor" style="color: var(--accent);">
@@ -1282,12 +1394,12 @@
                         </svg>
                     </div>
                     <h3 class="platform-name">Thangs</h3>
-                    <p class="platform-description">Portfolio di design 3D avanzati</p>
+                    <p class="platform-description" data-i18n="plat2-desc">Portfolio di design 3D avanzati</p>
                     <div class="platform-link">
-                        <span>→</span> Visita Profilo
+                        <span>→</span> <span data-i18n="visit-profile">Visita Profilo</span>
                     </div>
                 </a>
-                
+
                 <a href="https://cults3d.com/en/users/HexLions/3d-models" target="_blank" class="platform-card">
                     <div class="platform-icon">
                         <svg width="60" height="60" viewBox="0 0 24 24" fill="currentColor" style="color: var(--accent);">
@@ -1295,9 +1407,9 @@
                         </svg>
                     </div>
                     <h3 class="platform-name">Cults3D</h3>
-                    <p class="platform-description">Modelli premium e progetti speciali</p>
+                    <p class="platform-description" data-i18n="plat3-desc">Modelli premium e progetti speciali</p>
                     <div class="platform-link">
-                        <span>→</span> Visita Profilo
+                        <span>→</span> <span data-i18n="visit-profile">Visita Profilo</span>
                     </div>
                 </a>
             </div>
@@ -1342,6 +1454,192 @@
     </footer>
 
     <script>
+        const translations = {
+            'hero-desc': {
+                it: "Just a typical nerd appassionato di tecnologia, networking e progetti maker. Lavoro come IT Assistant occupandomi di infrastrutture IT e reti, con forte interesse per Python, CAD modeling, stampa 3D e open source hardware.",
+                en: "Just a typical nerd passionate about technology, networking and maker projects. I work as an IT Assistant handling IT infrastructure and networking, with a strong interest in Python, CAD modeling, 3D printing and open source hardware."
+            },
+            'cta-projects': { it: "Vedi Progetti", en: "View Projects" },
+            'about-title': { it: "Chi Sono", en: "About Me" },
+            'about-p1': {
+                it: "Sono un <strong>IT Specialist</strong> con esperienza pluriennale nell'assistenza tecnica, gestione reti e amministrazione sistemi. Attualmente lavoro come <strong>IT Assistant &amp; Network Specialist</strong>, occupandomi della gestione end-to-end dell'infrastruttura aziendale.",
+                en: "I'm an <strong>IT Specialist</strong> with several years of experience in technical support, network management and system administration. I currently work as an <strong>IT Assistant &amp; Network Specialist</strong>, handling end-to-end management of the company infrastructure."
+            },
+            'about-p2': {
+                it: "La mia esperienza include manutenzione hardware Dell, supporto help desk remoto, configurazione Active Directory, gestione infrastrutture di rete e troubleshooting sistemistico su commesse enterprise multi-sede.",
+                en: "My experience includes Dell hardware maintenance, remote help desk support, Active Directory configuration, network infrastructure management and systems troubleshooting on multi-site enterprise engagements."
+            },
+            'about-p3': {
+                it: "Nel tempo libero mi dedico a progetti <strong>maker</strong>: stampa 3D, Arduino, Raspberry Pi, droni e fotografia. Sto imparando Python e CAD modeling, con particolare focus su <strong>Fusion 360</strong> per la progettazione di componenti meccanici.",
+                en: "In my free time I work on <strong>maker</strong> projects: 3D printing, Arduino, Raspberry Pi, drones and photography. I'm learning Python and CAD modeling, with a particular focus on <strong>Fusion 360</strong> for designing mechanical parts."
+            },
+            'about-p4': {
+                it: "Ho frequentato <strong>Ingegneria Informatica</strong> presso l'Università di Firenze dal 2018 al 2024, dove ho sviluppato competenze avanzate in networking e sistemi distribuiti.",
+                en: "I studied <strong>Computer Engineering</strong> at the University of Florence from 2018 to 2024, where I developed advanced skills in networking and distributed systems."
+            },
+            'edu-title': { it: "Formazione", en: "Education" },
+            'edu1-degree': { it: "Ingegneria Informatica", en: "Computer Engineering" },
+            'edu1-details': {
+                it: "Percorso universitario in Ingegneria Informatica con focus su networking, sistemi distribuiti e architetture software.",
+                en: "University degree in Computer Engineering with a focus on networking, distributed systems and software architecture."
+            },
+            'edu2-degree': {
+                it: "Diploma di Perito Tecnico Informatico e delle Telecomunicazioni",
+                en: "IT & Telecommunications Technical Diploma"
+            },
+            'edu2-details': {
+                it: `<p>Competenze acquisite:</p>
+                        <ul>
+                            <li>Programmazione Web (JavaScript, HTML, PHP, CSS)</li>
+                            <li>Programmazione Software (Java, C, Assembly)</li>
+                            <li>Gestione Database (Access, MySQL)</li>
+                            <li>Gestione Reti (Cisco Packet Tracer)</li>
+                        </ul>`,
+                en: `<p>Skills acquired:</p>
+                        <ul>
+                            <li>Web Development (JavaScript, HTML, PHP, CSS)</li>
+                            <li>Software Programming (Java, C, Assembly)</li>
+                            <li>Database Management (Access, MySQL)</li>
+                            <li>Network Management (Cisco Packet Tracer)</li>
+                        </ul>`
+            },
+            'exp-title': { it: "Esperienza", en: "Experience" },
+            'exp1-date': { it: "Aprile 2024 - Presente", en: "April 2024 - Present" },
+            'exp1-desc': {
+                it: "Gestione completa dell'infrastruttura IT aziendale, amministrazione reti, configurazione e manutenzione server, supporto utenti e implementazione soluzioni tecnologiche.",
+                en: "Full management of company IT infrastructure, network administration, server configuration and maintenance, user support and technology solution implementation."
+            },
+            'exp2-date': { it: "Settembre 2021 - Dicembre 2023", en: "September 2021 - December 2023" },
+            'exp2-title': { it: "Tecnico Informatico - Help Desk", en: "IT Technician - Help Desk" },
+            'exp2-desc': {
+                it: `<p>Assistenza tecnica sul campo (attività non continuativa per esigenze universitarie):</p>
+                        <ul>
+                            <li>Assistenza remota tramite Anydesk e TeamViewer</li>
+                            <li>Manutenzione e sostituzione macchine Dell</li>
+                            <li>Gestione troubleshooting sistemistico</li>
+                            <li>Supporto help desk multi-livello</li>
+                        </ul>`,
+                en: `<p>On-site technical support (part-time, alongside university studies):</p>
+                        <ul>
+                            <li>Remote support via AnyDesk and TeamViewer</li>
+                            <li>Dell machine maintenance and replacement</li>
+                            <li>Systems troubleshooting</li>
+                            <li>Multi-level help desk support</li>
+                        </ul>`
+            },
+            'exp3-date': { it: "Maggio 2021 - Giugno 2021", en: "May 2021 - June 2021" },
+            'exp3-title': { it: "Tecnico Informatico", en: "IT Technician" },
+            'exp3-desc': {
+                it: `<ul>
+                            <li>Ghosting PC e configurazione iniziale</li>
+                            <li>Consegna PC agli utenti finali</li>
+                            <li>Setup postazioni di lavoro</li>
+                        </ul>`,
+                en: `<ul>
+                            <li>PC ghosting and initial configuration</li>
+                            <li>PC delivery to end users</li>
+                            <li>Workstation setup</li>
+                        </ul>`
+            },
+            'exp4-date': { it: "Dicembre 2016 - Agosto 2017", en: "December 2016 - August 2017" },
+            'exp4-title': { it: "Programmatore (Stage)", en: "Programmer (Internship)" },
+            'exp4-desc': {
+                it: `<ul>
+                            <li>Ricerca e integrazione QR Code per "Firenze The Walking City"</li>
+                            <li>Ricerca coordinate GPS per posizionamento QR Code</li>
+                            <li>Gestione database per creazione e integrazione nuovi QR Code</li>
+                        </ul>`,
+                en: `<ul>
+                            <li>QR Code research and integration for "Firenze The Walking City"</li>
+                            <li>GPS coordinate lookup for QR Code placement</li>
+                            <li>Database management for new QR Code creation and integration</li>
+                        </ul>`
+            },
+            'proj-title': { it: "Progetti", en: "Projects" },
+            'proj-racktemp-desc': {
+                it: "Monitor self-hosted per temperatura e umidità del rack: sensore ESP32-C3 + SHT31-D, dashboard web live con segnale WiFi, discovery automatica dei sensori in rete, aggiornamenti firmware OTA, alert SMTP/Telegram/Graph, backup programmati e integrazione PRTG/Prometheus/Zabbix. Disponibile come container Docker, servizio Windows o servizio Linux nativo.",
+                en: "Self-hosted rack temperature & humidity monitor: ESP32-C3 + SHT31-D sensor, live web dashboard with WiFi signal strength, automatic network sensor discovery, OTA firmware updates, SMTP/Telegram/Graph alerts, scheduled backups and PRTG/Prometheus/Zabbix integration. Ships as a Docker container, native Windows service or native Linux service."
+            },
+            'proj-gbp-desc': {
+                it: "Tool web per l'ecosistema Game Boy Printer Emulator — zero installazione, gira interamente nel browser via Web Serial API. Riceve foto dalla Game Boy Camera via Arduino su USB, decodifica i tile 2bpp in PNG nativo (export singolo o batch ZIP) e flasha il firmware GBP Emulator su Arduino Nano/Uno via STK500v1, senza avrdude né Arduino IDE.",
+                en: "Web tool for the Game Boy Printer Emulator ecosystem — zero install, runs entirely in the browser via the Web Serial API. Receives Game Boy Camera photos from an Arduino over USB, decodes 2bpp tile data into native PNG (single or batch ZIP export), and flashes the GBP Emulator firmware onto Arduino Nano/Uno via STK500v1, no avrdude or Arduino IDE needed."
+            },
+            'proj-dsgame-desc': {
+                it: "Tracker per la collezione di giochi Nintendo DS, precaricato con tutti i 3255 giochi ufficiali: spunta quelli che possiedi e tieni traccia della collezione da un sito statico.",
+                en: "Nintendo DS game collection tracker, preloaded with all 3255 official DS games: tick the ones you own and keep track of your collection from a static site."
+            },
+            'proj-paperdesk-desc': {
+                it: "To-do list su display e-paper, controllabile da web app o bot Telegram. Basato su ESP32 (LOLIN32 Lite) e pannello e-paper 4.2\", gira per settimane con una singola batteria LiPo grazie al deep sleep nativo.",
+                en: "To-do list on e-paper, controllable from a web app or a Telegram bot. Built on an ESP32 (LOLIN32 Lite) and a 4.2\" e-paper panel, runs for weeks on a single LiPo charge thanks to native deep sleep."
+            },
+            'proj-tip-desc': {
+                it: "Pressa open source completamente stampabile in 3D per l'inserimento preciso di inserti filettati. Il progetto è stato realizzato in Fusion 360 con design parametrico che permette la personalizzazione di tutte le dimensioni. Include meccanica a vite senza fine per controllo fine della pressione, guide lineari per stabilità, e supporta diverse misure di inserti (M3, M4, M5, M6). Progetto rilasciato open source per la community maker e stampato da centinaia di utenti worldwide.",
+                en: "Fully 3D-printable open source press for precise heat-set threaded insert installation. Designed in Fusion 360 with a parametric design allowing full dimension customization. Features a worm-screw mechanism for fine pressure control, linear guides for stability, and supports multiple insert sizes (M3, M4, M5, M6). Released open source for the maker community and printed by hundreds of users worldwide."
+            },
+            'proj-cosplay-desc': {
+                it: "Badge RPG indossabile con ESP-01S e display OLED 0.96\". Genera una carta personaggio RPG deterministica dal nome (classe, livello, statistiche), mostra eventi cosplay italiani in tempo reale da cosplayersitaliani.it, orologio NTP sincronizzato e WiFi captive portal per configurazione. Carousel automatico con alert per eventi imminenti. Progetto completo Arduino/ESP8266.",
+                en: "Wearable RPG badge built on an ESP-01S and a 0.96\" OLED display. Generates a deterministic RPG character card from your name (class, level, stats), shows live Italian cosplay events from cosplayersitaliani.it, an NTP-synced clock, and a WiFi captive portal for setup. Automatic carousel with alerts for upcoming events. Full Arduino/ESP8266 project."
+            },
+            'proj-pipaas-desc': {
+                it: "Platform-as-a-Service self-hosted su Raspberry Pi con DietPi. Web-based deployment di app Node.js, Python, static sites e Docker containers. Backend Node.js con admin panel UI, gestione DNS automatica, supporto i18n in 6 lingue (IT/EN/ES/FR/DE/JP) e monitoring real-time. Sistema completo per hosting locale di progetti personali.",
+                en: "Self-hosted Platform-as-a-Service for Raspberry Pi with DietPi. Web-based deployment of Node.js apps, Python, static sites and Docker containers. Node.js backend with admin panel UI, automatic DNS management, i18n support in 6 languages (IT/EN/ES/FR/DE/JP) and real-time monitoring. Complete system for locally hosting personal projects."
+            },
+            'proj-e3ng-desc': {
+                it: "Configurazione e ottimizzazione per stampante 3D E3NG. Setup firmware, profili di stampa e configurazioni hardware.",
+                en: "Configuration and tuning for the E3NG 3D printer. Firmware setup, print profiles and hardware configuration."
+            },
+            'proj-lionet-desc': {
+                it: "Tesi universitaria su modulazione di rete Peer-to-Peer basata su protocollo LIONET per reti pubbliche. Ricerca e implementazione.",
+                en: "University thesis on Peer-to-Peer network modulation based on the LIONET protocol for public networks. Research and implementation."
+            },
+            'proj-firenze-desc': {
+                it: "Integrazione QR Code per applicazione turistica del Comune di Firenze. Gestione database e georeferenziazione punti di interesse.",
+                en: "QR Code integration for a municipal tourism app. Database management and geo-referencing of points of interest."
+            },
+            'proj-homelab-desc': {
+                it: "Progetti vari con Raspberry Pi, Arduino, ESP8266/32. Automazione, monitoring, IoT e sperimentazione hardware.",
+                en: "Various projects with Raspberry Pi, Arduino, ESP8266/32. Automation, monitoring, IoT and hardware experimentation."
+            },
+            'more-github': { it: "Altro su GitHub", en: "More on GitHub" },
+            'proj-photo-desc': {
+                it: "Fotografia, video editing con Adobe Premiere Pro, riprese con droni e post-produzione.",
+                en: "Photography, video editing with Adobe Premiere Pro, drone footage and post-production."
+            },
+            'instagram-portfolio': { it: "Portfolio Instagram", en: "Instagram Portfolio" },
+            'platforms-intro': {
+                it: "Esplora i miei modelli 3D stampabili, progetti open source e design parametrici su queste piattaforme.",
+                en: "Explore my 3D printable models, open source projects and parametric designs on these platforms."
+            },
+            'plat1-desc': { it: "Modelli 3D gratuiti e progetti open source", en: "Free 3D models and open source projects" },
+            'plat2-desc': { it: "Portfolio di design 3D avanzati", en: "Portfolio of advanced 3D designs" },
+            'plat3-desc': { it: "Modelli premium e progetti speciali", en: "Premium models and special projects" },
+            'visit-profile': { it: "Visita Profilo", en: "Visit Profile" }
+        };
+
+        function applyLanguage(lang) {
+            document.documentElement.setAttribute('lang', lang);
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const entry = translations[el.dataset.i18n];
+                if (entry && entry[lang]) {
+                    el.innerHTML = entry[lang];
+                }
+            });
+            const langToggle = document.getElementById('langToggle');
+            if (langToggle) {
+                langToggle.textContent = lang === 'it' ? 'EN' : 'IT';
+            }
+            localStorage.setItem('lang', lang);
+        }
+
+        const currentLang = localStorage.getItem('lang') || 'it';
+        applyLanguage(currentLang);
+
+        const langToggle = document.getElementById('langToggle');
+        langToggle.addEventListener('click', function () {
+            const next = document.documentElement.getAttribute('lang') === 'it' ? 'en' : 'it';
+            applyLanguage(next);
+        });
+
         // Section Fade-In on Scroll
         const sectionObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -1364,7 +1662,7 @@
         // Theme Toggle
         const themeToggle = document.getElementById('themeToggle');
         const html = document.documentElement;
-        
+
         // Load saved theme or default to dark
         const currentTheme = localStorage.getItem('theme') || 'dark';
         html.setAttribute('data-theme', currentTheme);
@@ -1376,7 +1674,6 @@
             html.setAttribute('data-theme', theme);
             localStorage.setItem('theme', theme);
             themeToggle.textContent = theme === 'dark' ? '🌙' : '☀️';
-            console.log('Theme changed to:', theme); // Debug log
         });
 
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
